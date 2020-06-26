@@ -27,11 +27,11 @@
 
 	Like this,
 
-	public double convert(double t){
-      		t = t + 273.15;
-      	System.out.println("convert Celsius to Kelvin: "+t);
-      	return t;
-   	}
+		public double convert(double t){
+       		t = (t * 9.0 / 5.0) + 32.0;
+      		System.out.println("convert Celsius to Fahrenheit: "+t);
+      		return t; 
+   		}
 		
 	In the main method we are assigning the object of the class (Thermometer) to the reference variable of the interface and trying to invoke both the method convert() and isHot().
 	

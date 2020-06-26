@@ -1,0 +1,112 @@
+
+10. Call the convert method on the converter variable passing some random value and print its returned value.
+ Why do you think it is possible to call the convert method on an instance of Thermometer or PitotTube?
+
+=>
+ 	In order to call an interface method from a java program, the program must instantiate the interface implementation program. 
+ 	A method can then be called using the implementation object.
+
+ 	convert() method is defined in the interface.
+ 	But method convert() do not include implementation logic in the interface Converter.
+ 	Implementation of convert() method is done in the concrete class Thermometer, Thermocouple, PitotTube and ShaftLog. 
+ 	The program instantiates the interface implementation.
+ 	convert() is called in the main class.
+ 	And it is possible to call the convert method on an instance of Thermometer or PitotTube.
+
+
+11. If the input choice is 1 or 2, try calling the isHot method on the converter object.
+ Why do you think this fails even though converter holds an object of Thermometer or Thermocouple?
+ For input choice of 3 or 4, try calling the isFast method. This fails too.
+
+=>	We can implement an interface (i.e. Converter) and provide body to its method (i.e. convert()) from a class (i.e. Thermometer or Thermocouple).
+        we can hold object of that class (i.e. Thermometer or Thermocouple) using the reference variable (i.e. converter) of the interface (i.e. Converter)
+	
+	For example, 
+	We have a class Thermometer extends a method (isHot()) from its parent abstract class TemperatureConverter. and override the method of the Interface (convert()). 
+	we are implementing the convert() method of the interface in the Thermometer class.
+	In the main method we are assigning the object of the class (Thermometer t1) to the reference variable of the interface and trying to invoke both the method convert() and isHot().
+	
+	Like this,
+		Converter converter = new Thermometer();
+		converter.convert(8.7);
+		converter.isHot(50.6);
+
+	But, using this we can access the methods of the interface only, if we try to access the methods of the class a compile time error is generated.
+	Thats why we can access the convert() method using this and we cannot access the isHot() method using this.
+
+	On compiling, it generates the following compile time error −
+
+	Main.java:130: error: cannot find symbol
+                     converter.isHot(50.6);
+                              ^
+  	symbol:   method isHot(double)
+  	location: variable converter of type Converter
+	1 error
+	
+	That's why it fails even though converter holds an object of Thermometer or Thermocouple and in othe hand for input choice of 3 or 4,calling the isFast method, fails too.
+
+12. Now, depending on the input choice from step 9, 
+force typecast the converter instance to its subclass of Thermometer, Thermocouple , PitotTube or ShaftLog.
+ Now try calling the isHot and isFast accordingly. Why do you think it works now?
+
+=>
+	We can access the method (isHot()) by using reference variable casting, 
+	force typecast the reference variable (converter) instance to its subclass of Thermometer, Thermocouple , PitotTube or ShaftLog.
+
+	Like this...
+
+		Converter converter = new Thermometer();
+        	Thermometer t1 = (Thermometer) converter;
+
+		Converter converter1 = new Thermocouple();
+          	Thermocouple t2 = (Thermocouple) converter1;
+           
+           	Converter converter2 = new PitotTube();
+           	PitotTube p1 = (PitotTube) converter2;
+           
+           	Converter converter3 = new ShaftLog();
+           	ShaftLog st = (ShaftLog) converter3;
+	
+	After force casting, trying to invoke both the method convert() and isHot().
+	 
+		switch (num) {
+                 case 1:
+                     System.out.println("Input 1");
+                     converter.convert(8.7);
+                     //converter.isHot(50.6);
+                     t1.convert(8.7);
+                     t1.isHot(50.6);
+                   break;
+                 case 2:
+                     System.out.println("Input 2");
+                     converter1.convert(4.7);
+                     //converter1.isHot(80.5);
+                     t2.convert(4.7);
+                     t2.isHot(80.5);
+                   break;
+                 case 3:
+                     System.out.println("Input 3");
+                     converter2.convert(7.8);
+                     //converter2.isFast(40.7);
+                     p1.convert(4.7);
+                     p1.isFast(40.7);
+                   break;
+                 case 4:
+                     System.out.println("Input 4");
+                     converter3.convert(8.5);
+                     //converter3.isFast(100.7);
+                     st.convert(8.5);
+                     st.isFast(100.7);
+                   break;
+                 default:
+                     System.out.println("Wrong Input");
+                     break;
+               }
+
+	And now it works fine.
+	
+
+
+
+
+

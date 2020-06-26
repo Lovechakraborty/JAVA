@@ -127,22 +127,30 @@ public class Main{
                  case 1:
                      System.out.println("Input 1");
                      converter.convert(8.7);
+                     //converter.isHot(50.6);
+                     t1.convert(8.7);
                      t1.isHot(50.6);
                    break;
                  case 2:
                      System.out.println("Input 2");
                      converter1.convert(4.7);
+                     //converter1.isHot(80.5);
+                     t2.convert(4.7);
                      t2.isHot(80.5);
                    break;
                  case 3:
                      System.out.println("Input 3");
-                     converter2.convert(7.5);
+                     converter1.convert(7.8);
+                     //converter1.isFast(40.7);
+                     p1.convert(4.7);
                      p1.isFast(40.7);
                    break;
                  case 4:
                      System.out.println("Input 4");
                      converter3.convert(8.5);
-                     st.isFast(100.5);
+                     //converter1.isFast(100.7);
+                     st.convert(8.5);
+                     st.isFast(100.7);
                    break;
                  default:
                      System.out.println("Wrong Input");

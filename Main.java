@@ -9,19 +9,10 @@ interface Converter{
 
 abstract class TemperatureConverter implements Converter{
   abstract protected boolean isHot(double temparature);
-   // public double convert(double t){
-   //    System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
-   //    return t;
-   // }
-   
 }
 
 abstract class SpeedConverter implements Converter{
    abstract protected boolean isFast(double Speed);
-   // public double convert(double sp){
-   //    System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
-   //    return sp;
-   // }
 }
 
 class Thermometer extends TemperatureConverter{
@@ -137,25 +128,21 @@ public class Main{
                      System.out.println("Input 1");
                      converter.convert(8.7);
                      t1.isHot(50.6);
-                      //Thermometer t1;
                    break;
                  case 2:
                      System.out.println("Input 2");
                      converter1.convert(4.7);
                      t2.isHot(80.5);
-                     //Thermocouple t2;
                    break;
                  case 3:
                      System.out.println("Input 3");
                      converter2.convert(7.5);
                      p1.isFast(40.7);
-                    // PitotTube p1;
                    break;
                  case 4:
                      System.out.println("Input 4");
                      converter3.convert(8.5);
                      st.isFast(100.5);
-                    // ShaftLog s1;
                    break;
                  default:
                      System.out.println("Wrong Input");
@@ -164,11 +151,9 @@ public class Main{
                    
        }
        catch (NoSuchElementException exception) {
-            // Output expected NoSuchElementExceptions.
-           // log(exception);
+            
         } catch (Exception exception) {
-            // Output unexpected Exceptions.
-            //log(exception, false);
+            
         }
         
    }

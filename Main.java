@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Scanner;
 import java.lang.*;
 import java.io.*;
 
@@ -8,20 +9,19 @@ interface Converter{
 
 abstract class TemperatureConverter implements Converter{
   abstract protected boolean isHot(double temparature);
-   public double convert(double t){
-      System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
-      return t;
-   }
+   // public double convert(double t){
+   //    System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
+   //    return t;
+   // }
    
 }
 
 abstract class SpeedConverter implements Converter{
    abstract protected boolean isFast(double Speed);
-   public double convert(double sp){
-      System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
-      return sp;
-   }
-   
+   // public double convert(double sp){
+   //    System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
+   //    return sp;
+   // }
 }
 
 class Thermometer extends TemperatureConverter{
@@ -31,14 +31,17 @@ class Thermometer extends TemperatureConverter{
                 System.out.println(" Hot Temparature ");
                 return true;
             }
+            else{
              System.out.println("Thermometer Temparature is: "+temparature);
              System.out.println("Not So Hot ");
              return false;
+            }
    }
 @Override
    public double convert(double t){
-      System.out.println("convert kms to mach and kmh to mph respectively.");
-        return t;
+       t = (t * 9.0 / 5.0) + 32.0;
+      System.out.println("convert Celsius to Fahrenheit: "+t);
+      return t; 
    }
 
 }
@@ -50,14 +53,17 @@ class Thermocouple extends TemperatureConverter{
                 System.out.println(" Hot Temparature ");
                 return true;
             }
+            else{
              System.out.println("Thermocouple Temparature is: "+temparature);
              System.out.println("Not So Hot ");
              return false;
+            }
    }
 @Override
    public double convert(double t){
-      System.out.println("convert kms to mach and kmh to mph respectively.");
-        return t;
+      t = t + 273.15;
+      System.out.println("convert Celsius to Kelvin: "+t);
+      return t;
    }
 }
 
@@ -68,14 +74,17 @@ class Thermocouple extends TemperatureConverter{
                 System.out.println(" Fast Speed ");
                 return true;
             }
+            else{
              System.out.println("PitotTube Speed is: "+speed);
              System.out.println("Not So Fast ");
              return false;
+            }
  }
   @Override
-   public double convert(double sp){
-      System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
-      return sp;
+   public double convert(double kms){
+      kms = kms / 1225;
+      System.out.println("convert kms to mach: "+kms);
+      return kms;
    }
 
 }
@@ -87,14 +96,17 @@ class ShaftLog  extends SpeedConverter{
                 System.out.println(" Fast Speed ");
                 return true;
             }
+        else{
              System.out.println("ShaftLog Speed is: "+speed);
              System.out.println("Not So Fast ");
              return false;
+            }
   }
   @Override
-   public double convert(double sp){
-      System.out.println("convert Celsius to Fahrenheit and Celsius to Kelvin respectively");
-      return sp;
+   public double convert(double kmh){
+       kmh = 0.6213712 * kmh; 
+       System.out.println("convert kmh to mph: "+kmh);
+      return kmh;
    }
    
 }
@@ -141,7 +153,7 @@ public class Main{
                    break;
                  case 4:
                      System.out.println("Input 4");
-                     converter3.convert(6.7);
+                     converter3.convert(8.5);
                      st.isFast(100.5);
                     // ShaftLog s1;
                    break;

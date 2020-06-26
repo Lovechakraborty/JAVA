@@ -40,7 +40,7 @@
 		converter.isHot(50.6);
 
 	But, using this we can access the methods of the interface only, if we try to access the methods of the class a compile time error is generated.
-	Thats why we can access the convert() method using this and we cannot access the isHot() method using this.
+	Thats why we can access the convert() method but we cannot access the isHot() method using this.
 
 	On compiling, it generates the following compile time error −
 
@@ -51,7 +51,7 @@
   	location: variable converter of type Converter
 	1 error
 	
-	That's why it fails even though converter holds an object of Thermometer or Thermocouple and in othe hand for input choice of 3 or 4,calling the isFast method, fails too.
+	That's why it fails even though converter holds an object of Thermometer or Thermocouple and in other hand for input choice of 3 or 4,calling the isFast method, fails too.
 
 12. Now, depending on the input choice from step 9, 
 force typecast the converter instance to its subclass of Thermometer, Thermocouple , PitotTube or ShaftLog.

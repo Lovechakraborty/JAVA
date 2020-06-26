@@ -23,8 +23,7 @@
 	
 	For example, 
 	We have a class Thermometer extends a method (isHot()) from its parent abstract class TemperatureConverter. and override the method of the Interface (convert()). 
-	we are implementing the convert() method of the interface in the Thermometer class.
-	In the main method we are assigning the object of the class (Thermometer t1) to the reference variable of the interface and trying to invoke both the method convert() and isHot().
+	we are implementing the convert() method of the interface in the Thermometer class.	
 	
 	Like this,
 		Converter converter = new Thermometer();
@@ -52,6 +51,7 @@ force typecast the converter instance to its subclass of Thermometer, Thermocoup
 =>
 	We can access the method (isHot()) by using reference variable casting, 
 	force typecast the reference variable (converter) instance to its subclass of Thermometer, Thermocouple , PitotTube or ShaftLog.
+	In the main method we are assigning the object of the class (Thermometer t1) to the reference variable of the interface and trying to invoke both the method convert() and isHot().
 
 	Like this...
 

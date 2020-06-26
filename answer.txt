@@ -59,8 +59,11 @@ force typecast the converter instance to its subclass of Thermometer, Thermocoup
 
 =>
 	We can access the method (isHot()) by using reference variable casting, 
-	force typecast the reference variable (converter) instance to its subclass of Thermometer, Thermocouple , PitotTube or ShaftLog.
+	casting a reference variable doesn’t touch the object it refers to, but only labels this object in another way, 
+	expanding or narrowing opportunities to work with it.
+ 	Upcasting narrows the list of methods and properties available to this object, and downcasting can extend it. Here we are using downcasting.
 
+	force typecast the reference variable (converter) instance to its subclass of Thermometer, Thermocouple , PitotTube or ShaftLog.
 	Like this...
 
 		Converter converter = new Thermometer();
